@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, String> {
     List<Event> findAllByPublishedAtBetween(LocalDateTime startDateTime, LocalDateTime endDateTime);
+    List<Event> findFirstByPublishedAtBetween(LocalDateTime startDateTime, LocalDateTime endDateTime);
 }
