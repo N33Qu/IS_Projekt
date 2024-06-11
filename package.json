@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@types/moment": "^2.13.0"
+  },
+  "dependencies": {
+    "js-file-download": "^0.4.12"
   }
 }

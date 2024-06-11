@@ -17,7 +17,21 @@ export const getCoinById = async (id: string | undefined) => {
     return response.data;
 };
 
-export const getAllEvents = async () => {
-    const response = await axios.get(`${API_BASE_URL}/events/all`);
-    return response.data;
+
+
+export const getAllEvents = async (username: string, password: string) => {
+    const credentials = btoa(`${username}:${password}`);
+    const config = {
+        headers: {
+            'Authorization': `Basic ${credentials}`
+        }
+    };
+
+    try {
+        const response = await axios.get(`${API_BASE_URL}/events/all`, config);
+        return response.data;
+    } catch (error) {
+        console.error('Login failed:', error);
+        throw error;
+    }
 };
